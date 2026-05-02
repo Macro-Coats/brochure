@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MacroCoats — Capabilities 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #2D2A8C;
+    --indigo-50: #F0EFF8;
+    --indigo-100: #E0DEF1;
+    --graphite: #3A3F4B;
+    --graphite-soft: #5A5F6B;
+    --magenta: #8B2C7D;
+    --magenta-soft: #B254A6;
+    --offwhite: #F8F7F4;
+    --white: #FFFFFF;
+    --placeholder: #E8E7F0;
+    --rule: #D9D8E2;
+    --rule-soft: #ECEBF1;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--graphite);
+    background: #DCDBE4;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "tnum" 1, "kern" 1;
+    line-height: 1.45;
+  }
+
+  .pages {
+    display: flex; flex-direction: column; align-items: center; gap: 32px;
+    padding: 32px 16px 64px;
+  }
+
+  /* Responsive Page Setup */
+  .page {
+    width: 100%;
+    max-width: 210mm; /* Caps at A4 width */
+    height: auto;
+    min-height: 297mm; /* Ensures A4 height min */
+    background: var(--white);
+    box-shadow: 0 22px 60px rgba(45,42,140,0.18), 0 4px 12px rgba(45,42,140,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ============ COMMON ============ */
+  .p-inner {
+    padding: 12mm;
+    height: 100%;
+    display: flex; flex-direction: column;
+  }
+
+  .section-eyebrow {
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--magenta);
+  }
+
+  h1.headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 26pt;
+    line-height: 1.1;
+    color: var(--indigo);
+    letter-spacing: -0.02em;
+    margin: 6px 0 10px;
+  }
+  h2.subhead {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18pt;
+    color: var(--indigo);
+    letter-spacing: -0.015em;
+    margin: 0 0 8px;
+  }
+  h3.section-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20pt;
+    color: var(--indigo);
+    letter-spacing: -0.02em;
+    margin: 4px 0 8px;
+  }
+
+  .lede {
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: var(--graphite);
+    margin: 0 0 10px;
+  }
+
+  /* ============ PAGE 1 — COVER ============ */
+  .cover { color: var(--white); position: relative; background: var(--indigo); }
+  .cover .img-hero {
+    position: absolute; inset: 0;
+    overflow: hidden;
+  }
+  .cover .img-hero img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    filter: saturate(0.55) hue-rotate(205deg) brightness(0.78) contrast(1.05);
+  }
+  .cover .tint {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(45,42,140,0.42) 0%, rgba(45,42,140,0.20) 45%, rgba(139,44,125,0.18) 100%);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  .cover .grad {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(45,42,140,0.55) 0%, rgba(45,42,140,0.10) 30%, rgba(45,42,140,0.35) 60%, rgba(20,18,70,0.92) 100%);
+    pointer-events: none;
+  }
+  .cover .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0) 40%, rgba(20,18,70,0.45) 100%);
+    pointer-events: none;
+  }
+  .cover-accent {
+    position: absolute;
+    left: 15mm; top: 38mm;
+    width: 18mm; height: 1.5pt;
+    background: var(--magenta);
+  }
+  .cover-eyebrow {
+    position: absolute;
+    left: 15mm; top: 42mm;
+    font-size: 8.5pt; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    text-shadow: 0 4px 12px rgba(20, 18, 70, 0.4);
+  }
+  .cover-inner {
+    position: absolute; inset: 0;
+    padding: 15mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .logo-lockup { display: flex; flex-direction: column; gap: 6px; width: 111mm; }
+  .logo-mark { display: flex; align-items: center; gap: 10px; color: var(--white); }
+  .logo-glyph { width: 30px; height: 34px; flex: 0 0 auto; }
+  .cover-top .logo-glyph { width: 42px; height: 48px; }
+  .logo-word { font-weight: 800; font-size: 24pt; letter-spacing: 0.02em; line-height: 1; text-shadow: 0 4px 12px rgba(20, 18, 70, 0.4); }
+  .logo-formerly {
+    font-size: 11pt; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.3;
+  }
+  .cover-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+  .cover-vp {
+    font-weight: 700; font-size: 42pt; line-height: 1.1; letter-spacing: -0.015em;
+    max-width: 175mm; color: var(--white); margin: 0;
+    text-shadow: 0 4px 12px rgba(20, 18, 70, 0.4);
+  }
+  .cover-vp em { font-style: italic; font-weight: 700; }
+  .cover-edition {
+    font-size: 9pt; color: rgba(255,255,255,0.7); letter-spacing: 0.16em;
+    text-transform: uppercase; font-weight: 500; text-align: right;
+    align-self: flex-end; padding-bottom: 2mm;
+  }
+
+  /* ============ PAGE 2 — INTRO + CAPS + APPS ============ */
+  .stat-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 0.75px solid var(--rule);
+    border-bottom: 0.75px solid var(--rule);
+    margin: 4mm 0 6mm;
+  }
+  .stat-cell {
+    padding: 8px 12px;
+    border-right: 1px solid var(--magenta);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-size: 30pt; font-weight: 700; color: var(--indigo);
+    letter-spacing: -0.025em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-label {
+    font-size: 7.5pt; font-weight: 600; color: var(--graphite);
+    letter-spacing: 0.14em; text-transform: uppercase; margin-top: 5px;
+  }
+
+  .cap-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 4mm;
+  }
+  .cap-card {
+    background: var(--offwhite);
+    border: 0.5px solid var(--rule);
+    border-radius: 2mm;
+    padding: 5mm;
+    display: flex; flex-direction: column; gap: 3mm;
+  }
+  .cap-icon { width: 22pt; height: 22pt; color: var(--indigo); flex: 0 0 auto; }
+  .cap-name {
+    font-size: 12pt; font-weight: 600; color: var(--indigo); line-height: 1.2;
+  }
+  .cap-desc {
+    font-size: 9pt; line-height: 1.45; color: var(--graphite); margin: 0;
+  }
+  .cap-spec {
+    font-size: 8.5pt; color: var(--magenta); font-style: italic; margin-top: auto;
+  }
+
+  /* Industrial Applications strip */
+  .apps-strip {
+    margin-top: 5mm;
+    background: var(--indigo);
+    border-radius: 2mm;
+    padding: 5mm 5mm;
+    display: grid; grid-template-columns: auto repeat(4, 1fr);
+    gap: 5mm;
+    align-items: center;
+    color: var(--white);
+  }
+  .apps-strip-label {
+    font-size: 8pt; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    line-height: 1.3; max-width: 24mm;
+  }
+  .app-cell {
+    display: flex; align-items: center; gap: 3mm;
+    border-left: 1px solid rgba(255,255,255,0.18);
+    padding-left: 4mm;
+  }
+  .app-icon { width: 20pt; height: 20pt; color: var(--white); flex: 0 0 auto; opacity: 0.95; }
+  .app-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .app-name { font-size: 10pt; font-weight: 600; color: var(--white); }
+  .app-meta {
+    font-size: 8pt; color: var(--magenta-soft); margin-top: 2px;
+    letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
+  }
+
+  /* ============ PAGE 3 — PRODUCT PORTFOLIO ============ */
+  .portfolio-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 5mm; border-bottom: 0.75px solid var(--rule); padding-bottom: 4mm;
+  }
+  .portfolio-head .left { flex: 1; }
+  .count-badge {
+    display: inline-flex; align-items: baseline; gap: 4mm;
+    font-size: 9pt; font-weight: 600; color: var(--graphite-soft);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .count-badge strong {
+    color: var(--magenta); font-size: 18pt;
+    font-variant-numeric: tabular-nums; font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Actual Image Styles for Cards */
+  .product-img-ph {
+    height: 40mm;
+    background: var(--indigo-100);
+    position: relative;
+    border-bottom: 0.5px solid var(--rule);
+    overflow: hidden;
+  }
+  .product-img-ph img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .product-img-ph::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--indigo);
+    opacity: 0.12;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  .product-row-primary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-bottom: 3mm; }
+  .product-row-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 4mm; }
+
+  .product-card {
+    border: 0.5px solid var(--rule); border-radius: 2mm;
+    background: var(--white); overflow: hidden;
+    display: flex; flex-direction: column;
+    box-shadow: 0 1px 3px rgba(45,42,140,0.04);
+  }
+  .product-card.featured .product-head { background: linear-gradient(135deg, var(--indigo) 0%, #3D3AAB 100%); }
+  .product-head {
+    background: var(--indigo); color: var(--white);
+    padding: 3mm 4mm 2.5mm; display: flex; justify-content: space-between; align-items: flex-start; gap: 3mm;
+  }
+  .product-head-text { display: flex; flex-direction: column; gap: 1.5mm; }
+  .product-cat { font-size: 11pt; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
+  .product-count { font-size: 7.5pt; color: var(--magenta-soft); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  .product-cat-icon { width: 16pt; height: 16pt; color: rgba(255,255,255,0.55); flex: 0 0 auto; }
+  .product-list { padding: 1mm 4mm 2.5mm; flex: 1; }
+  .product-list.single { flex: 0 0 auto; padding-bottom: 1mm; }
+  .product-list.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; padding-top: 2mm; }
+  .product-item { padding: 2mm 0; border-bottom: 0.5px solid var(--rule-soft); display: flex; flex-direction: column; gap: 1mm; }
+  .product-item:last-child { border-bottom: none; }
+  .product-list.two-col .product-item:nth-last-child(-n+2) { border-bottom: none; }
+  .product-name { font-size: 8.5pt; font-weight: 600; color: var(--indigo); line-height: 1.2; letter-spacing: -0.005em; }
+  .product-tag { font-size: 7.5pt; color: var(--graphite-soft); line-height: 1.2; font-style: italic; }
+  
+  /* Optically aligned product notes */
+  .product-note {
+    margin: 2mm 4mm 3mm;
+    padding: 2.5mm 3mm 2.5mm 2.5mm; 
+    background: var(--indigo-50);
+    border-left: 1.5pt solid var(--magenta);
+    border-radius: 1mm;
+    font-size: 7.5pt; line-height: 1.4;
+    color: var(--graphite);
+    font-style: italic;
+  }
+  .product-note strong {
+    color: var(--magenta); font-style: normal; font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* Industrial oils block - Scaled down to fit perfectly onto Page 4 */
+  .oils-block { background: var(--offwhite); border: 0.5px solid var(--rule); border-radius: 2mm; padding: 4mm 4.5mm; margin-bottom: 5mm; }
+  .oils-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3mm; padding-bottom: 2mm; border-bottom: 0.5px solid var(--rule); }
+  .oils-head h3 { font-size: 12pt; font-weight: 700; color: var(--indigo); margin: 2px 0 0; letter-spacing: -0.015em; }
+  .oils-tag { font-size: 7.5pt; color: var(--graphite-soft); font-style: italic; }
+  .oils-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm 5mm; }
+  .oil-cell { display: grid; grid-template-columns: 16pt 1fr; gap: 2.5mm; align-items: flex-start; }
+  .oil-icon { width: 13pt; height: 13pt; color: var(--indigo); margin-top: 2pt; }
+  .oil-name { font-size: 8.5pt; font-weight: 600; color: var(--indigo); line-height: 1.2; }
+  .oil-desc { font-size: 7pt; color: var(--graphite); line-height: 1.35; margin: 1mm 0 0; }
+
+  /* ============ PAGE 4 — CLIENTS + WHY CHOOSE + CONTACT ============ */
+  .divider-rule { height: 0.75px; background: var(--rule); margin: 4mm 0 4mm; }
+
+  .client-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3mm; margin-bottom: 2mm; }
+  .client-logo {
+    height: 16mm;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 1mm;
+    position: relative;
+  }
+  /* Client Logo filter enhancements */
+  .client-logo img {
+    max-width: 100%; max-height: 100%; object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 4mm; }
+  .why-card { background: var(--offwhite); border: 0.5px solid var(--rule); border-radius: 2mm; padding: 3.5mm 3.5mm; display: flex; flex-direction: column; gap: 2.5mm; }
+  .why-icon-wrap { width: 24pt; height: 24pt; background: var(--indigo); color: var(--white); border-radius: 1.5mm; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .why-icon-wrap svg { width: 14pt; height: 14pt; }
+  .why-name { font-size: 9.5pt; font-weight: 600; color: var(--indigo); line-height: 1.2; }
+  .why-desc { font-size: 7.5pt; line-height: 1.4; color: var(--graphite); margin: 0; }
+
+  .closing-band { margin: 0 0 4mm; padding: 4mm 0; border-top: 0.5px solid var(--rule); border-bottom: 0.5px solid var(--rule); text-align: center; }
+  .closing-band .closing-eyebrow { font-size: 8pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--magenta); margin-bottom: 2mm; }
+  .closing-band .closing-line { font-size: 16pt; font-weight: 700; color: var(--indigo); letter-spacing: -0.015em; line-height: 1.2; margin: 0; }
+  .closing-band .closing-line em { font-style: italic; font-weight: 700; }
+
+  .contact-name { font-size: 10pt; font-weight: 600; color: var(--indigo); margin: 0 0 1mm; line-height: 1.2; }
+  .contact-role { font-size: 7.5pt; color: var(--graphite); margin: 0 0 2mm; letter-spacing: 0.04em; }
+  .contact-line { font-size: 8pt; color: var(--graphite); line-height: 1.5; margin: 0; }
+  
+  /* Link interactions */
+  .contact-line a {
+    color: var(--indigo); text-decoration: none; border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-line a:hover { color: var(--magenta); border-bottom-color: var(--magenta); }
+
+  .back-bottom { display: grid; grid-template-columns: 1.6fr auto 1fr; gap: 6mm; align-items: flex-end; margin-top: auto; padding-top: 4mm; border-top: 0.5px solid var(--rule); }
+  .contact-col h4 { font-size: 8pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--magenta); margin: 0 0 2.5mm; }
+  .qr-block { display: flex; flex-direction: column; gap: 2mm; align-items: center; }
+  
+  /* Refined QR Placeholder */
+  .qr-ph {
+    width: 20mm; height: 20mm;
+    background: var(--white); color: var(--indigo);
+    border: 1.5px dashed var(--indigo);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .qr-ph .id { font-size: 7pt; color: var(--indigo); font-weight: 600; letter-spacing: 0.04em; text-align: center; }
+  .qr-caption { font-size: 7.5pt; color: var(--graphite); text-align: center; }
+  
+  .back-logo { display: flex; flex-direction: column; gap: 3px; color: var(--indigo); align-items: flex-end; }
+  .back-logo .logo-mark { color: var(--indigo); }
+
+  .footer-rule { position: absolute; left: 12mm; right: 12mm; bottom: 8mm; border-top: 0.75px solid var(--magenta); }
+  .copyright { position: absolute; left: 12mm; right: 12mm; bottom: 4mm; font-size: 7pt; font-style: italic; color: var(--graphite); text-align: center; }
+
+  /* ============ RESPONSIVE WEB SETTINGS (Mobile Views) ============ */
+  @media screen and (max-width: 768px) {
+    .p-inner, .cover-inner { padding: 6mm; }
+    .cover-accent { left: 6mm; }
+    .cover-eyebrow { left: 6mm; }
+    .footer-rule, .copyright { left: 6mm; right: 6mm; }
+    
+    .cover-vp { font-size: 32pt; max-width: 100%; }
+    .cover-top .logo-glyph { width: 32px; height: 36px; }
+    .logo-word { font-size: 18pt; }
+    .logo-formerly { font-size: 9.5pt; }
+    
+    /* Stack elements for mobile readability */
+    .stat-strip { grid-template-columns: 1fr 1fr; border-left: none; border-right: none; }
+    .stat-cell { border-right: none; border-bottom: 1px solid var(--rule-soft); padding: 4mm 0; }
+    .stat-cell:nth-child(even) { padding-left: 4mm; border-left: 1px solid var(--rule-soft); }
+    
+    .cap-grid, .why-grid, .apps-strip, .product-row-primary, .product-row-secondary, .oils-grid { grid-template-columns: 1fr; gap: 4mm; }
+    
+    .apps-strip { padding: 4mm; }
+    .app-cell { border-left: none; border-top: 1px solid rgba(255,255,255,0.18); padding-left: 0; padding-top: 3mm; }
+    
+    .client-strip { grid-template-columns: repeat(3, 1fr); gap: 2mm; }
+    
+    .back-bottom { grid-template-columns: 1fr; text-align: center; gap: 6mm; align-items: center; }
+    .back-bottom .contact-col { order: 1; display: flex; flex-direction: column; align-items: center; }
+    .back-bottom .qr-block { order: 2; }
+    .back-bottom .back-logo { order: 3; align-items: center; }
+    
+    /* On mobile, let pages define their natural heights instead of forcing A4 */
+    .page { min-height: auto; padding-bottom: 12mm; }
+  }
+
+  /* ============ PRINT / PDF GENERATOR SETTINGS ============ */
+  @media print {
+    @page { size: A4; margin: 0; }
+    body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pages { padding: 0; gap: 0; display: block; }
+    .page { 
+      width: 210mm !important; height: 297mm !important; min-height: 297mm !important; max-width: 210mm !important;
+      box-shadow: none; page-break-after: always; margin: 0; border: none; border-radius: 0;
+    }
+    .page:last-child { page-break-after: auto; }
+    /* Overrides for mobile layouts if accidentally printed on small viewports */
+    .p-inner { padding: 12mm !important; }
+    .stat-strip { grid-template-columns: repeat(4, 1fr) !important; border-top: 0.75px solid var(--rule) !important; border-bottom: 0.75px solid var(--rule) !important; }
+    .stat-cell { border-bottom: none !important; border-left: none !important; border-right: 1px solid var(--magenta) !important; padding: 8px 12px !important; }
+    .stat-cell:last-child { border-right: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="pages">
+
+<!-- PAGE 1 — COVER -->
+<section class="page cover">Iron Phosphating
+
+  <div class="img-hero">
+    <img src="https://raw.githubusercontent.com/kumaraswins/image/main/zn/zn4.jpg" alt="Industrial surface treatment bath in operation"/>
+  </div>
+  <div class="tint"></div>
+  <div class="vignette"></div>
+  <div class="grad"></div>
+
+  <div class="cover-accent"></div>
+  <div class="cover-eyebrow">Capabilities Overview</div>
+
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="logo-lockup">
+        <div class="logo-mark">
+          <svg class="logo-glyph" aria-hidden="true" viewBox="0 0 30 34" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M11 4 H19" stroke-linecap="round"/>
+            <path d="M12 4 V11 L6 26 Q5 30 9 30 H21 Q25 30 24 26 L18 11 V4" stroke-linejoin="round"/>
+            <path d="M9 22 H21" opacity="0.6"/>
+            <circle cx="13" cy="25" r="0.8" fill="currentColor" stroke="none"/>
+            <circle cx="17" cy="24" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+          <div class="logo-word">MACRO COATS P LTD</div>
+        </div>
+        <div class="logo-formerly">Formerly Technical Electroless<br/>Chemical Co. Pvt. Ltd.</div>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <p class="cover-vp">
+        Specialty Chemistry,<br/>
+        <em>Engineered Around Your Process.</em>
+      </p>
+      
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — WHO WE ARE + CAPABILITIES + APPLICATIONS -->
+<section class="page">
+  <div class="p-inner">
+
+    <div class="section-eyebrow">WHO WE ARE</div>
+    <h1 class="headline">
+      Specialty chemical formulations engineered for
+      consistency, scale, and control.
+    </h1>
+    <p class="lede">
+      Founded in 1993 as Technical Electroless Chemical Co., MacroCoats
+      develops process-critical surface treatment chemistry for
+      multi-location industrial operations across India. Every formulation
+      is matched to the customer's water profile, throughput, and operating
+      conditions — not pulled from a stock catalogue.
+    </p>
+
+    <div class="stat-strip">
+      <div class="stat-cell">
+        <div class="stat-num">1993</div>
+        <div class="stat-label">Established</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Years R&amp;D</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Industries</div>
+      </div>
+      <div class="stat-cell">
+        <!-- Optimized percentage alignment -->
+        <div class="stat-num">100<span style="font-size: 0.6em; vertical-align: super; margin-left: 2px;">%</span></div>
+        <div class="stat-label">Custom Formulation</div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:1mm;">TECHNICAL CAPABILITIES</div>
+    <h2 class="subhead">Phosphating expertise built over three decades.</h2>
+
+    <div class="cap-grid">
+      <div class="cap-card">
+        <svg class="cap-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 18 H21"/>
+          <path d="M5 18 V13 Q12 9 19 13 V18"/>
+          <circle cx="9" cy="6" r="1" fill="currentColor" stroke="none"/>
+          <circle cx="14" cy="5" r="0.8" fill="currentColor" stroke="none"/>
+          <circle cx="17" cy="7" r="0.6" fill="currentColor" stroke="none"/>
+        </svg>
+        <div class="cap-name">Room Temp Phosphating</div>
+        <p class="cap-desc">Energy-saving RT process for zinc phosphating with stable bath chemistry.</p>
+        <div class="cap-spec">No external heating required.</div>
+      </div>
+
+      <div class="cap-card">
+        <svg class="cap-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 20 H19 V12 Q19 9 16 9 H8 Q5 9 5 12 Z"/>
+          <path d="M9 9 V6 Q9 4 11 4 H13 Q15 4 15 6 V9"/>
+          <path d="M8 14 Q10 12 12 14 T16 14" opacity="0.7"/>
+        </svg>
+        <div class="cap-name">Hot Phosphating Systems</div>
+        <p class="cap-desc">45–70°C processes for heavy coating weights and demanding substrates.</p>
+        <div class="cap-spec">Optimised for thick coatings.</div>
+      </div>
+
+      <div class="cap-card">
+        <svg class="cap-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="9" width="16" height="11" rx="1"/>
+          <path d="M8 9 V6 A4 4 0 0 1 16 6 V9"/>
+          <line x1="8" y1="14" x2="16" y2="14" opacity="0.6"/>
+        </svg>
+        <div class="cap-name">Heavy Coating Capability</div>
+        <p class="cap-desc">Manganese phosphate up to 30 g/m² for wear parts and high-load components.</p>
+        <div class="cap-spec">Mn phosphate up to 30 g/m².</div>
+      </div>
+
+      <div class="cap-card">
+        <svg class="cap-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12 L9 17 L20 6"/>
+          <path d="M4 19 H20" opacity="0.5"/>
+        </svg>
+        <div class="cap-name">Excellent Paint Adhesion</div>
+        <p class="cap-desc">Optimal phosphate crystal structure delivers strong topcoat bonding.</p>
+        <div class="cap-spec">Crystal-engineered topography.</div>
+      </div>
+
+      <div class="cap-card">
+        <svg class="cap-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8"/>
+          <path d="M12 8 V12 L15 14"/>
+          <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        <div class="cap-name">Consistent Bath Performance</div>
+        <p class="cap-desc">Stable accelerator ratio across long bath life and shift-to-shift production.</p>
+        <div class="cap-spec">Predictable across runs.</div>
+      </div>
+
+      <div class="cap-card">
+        <svg class="cap-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 5 H18 L16 13 H8 Z"/>
+          <path d="M9 13 V18 H15 V13"/>
+          <path d="M11 18 V21 H13 V18"/>
+          <path d="M9 8 H15" opacity="0.6"/>
+        </svg>
+        <div class="cap-name">Reduced Sludge Formation</div>
+        <p class="cap-desc">Low-sludge formulations reduce disposal cost and effluent treatment load.</p>
+        <div class="cap-spec">Lower waste handling cost.</div>
+      </div>
+
+    </div>
+
+    <!-- Industrial Applications strip -->
+    <div class="apps-strip">
+      <div class="apps-strip-label">WHERE WE<br/>ARE USED</div>
+
+      <div class="app-cell">
+        <svg class="app-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 16 V11 L6 8 H18 L21 11 V16 H18 Q18 18 16 18 Q14 18 14 16 H10 Q10 18 8 18 Q6 18 6 16 Z"/>
+          <line x1="6" y1="11" x2="18" y2="11" opacity="0.6"/>
+        </svg>
+        <div class="app-text">
+          <span class="app-name">Automotive</span>
+          <span class="app-meta">Zn · Fe</span>
+        </div>
+      </div>
+
+      <div class="app-cell">
+        <svg class="app-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="8" r="3"/>
+          <line x1="8" y1="11" x2="8" y2="20"/>
+          <path d="M5 14 H11" opacity="0.6"/>
+          <circle cx="17" cy="16" r="2.5"/>
+          <line x1="17" y1="13.5" x2="17" y2="6"/>
+        </svg>
+        <div class="app-text">
+          <span class="app-name">Fasteners &amp; Hardware</span>
+          <span class="app-meta">Zn · Mn</span>
+        </div>
+      </div>
+
+      <div class="app-cell">
+        <svg class="app-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 3 V6 M12 18 V21 M3 12 H6 M18 12 H21 M5.5 5.5 L7.5 7.5 M16.5 16.5 L18.5 18.5 M5.5 18.5 L7.5 16.5 M16.5 7.5 L18.5 5.5"/>
+        </svg>
+        <div class="app-text">
+          <span class="app-name">Heavy Engineering</span>
+          <span class="app-meta">Mn · Fe</span>
+        </div>
+      </div>
+
+      <div class="app-cell">
+        <svg class="app-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6 L21 6 L18 12 L21 18 L3 18 L6 12 Z"/>
+          <line x1="6" y1="12" x2="18" y2="12" opacity="0.6"/>
+        </svg>
+        <div class="app-text">
+          <span class="app-name">Fabricated Steel</span>
+          <span class="app-meta">Fe · Zn</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAGE 3 — PRODUCT PORTFOLIO + INDUSTRIAL OILS -->
+<section class="page">
+  <div class="p-inner">
+
+    <div class="section-eyebrow">WHAT WE SUPPLY</div>
+    <div class="portfolio-head">
+      <div class="left">
+        <h1 class="headline" style="margin-bottom:2mm;">Product Portfolio</h1>
+        <p style="font-size:9.5pt; color:var(--graphite-soft); margin:0; max-width:140mm;">
+          Sixteen formulations across five categories — every product
+          engineered for a specific substrate, bath condition, and
+          downstream finishing requirement.
+        </p>
+      </div>
+      <div class="count-badge">
+        <strong>5</strong>
+        <span>Categories</span>
+        <strong>16</strong>
+        <span>Products</span>
+      </div>
+    </div>
+
+    <!-- Primary row: Core phosphating chemistries (featured) -->
+    <div class="product-row-primary">
+
+      <!-- Iron Phosphating -->
+      <div class="product-card featured">
+        <div class="product-img-ph">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2024/7/436117430/NZ/TB/VV/571141/metrit-iron-phosphating-500x500.jpg" alt="Iron Phosphating">
+        </div>
+        <div class="product-head">
+          <div class="product-head-text">
+            <div class="product-cat">Iron Phosphating</div>
+            <div class="product-count">5 Products</div>
+          </div>
+          <svg class="product-cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="9" width="16" height="11" rx="1"/>
+            <path d="M8 9 V6 A4 4 0 0 1 16 6 V9"/>
+          </svg>
+        </div>
+        <div class="product-list">
+          <div class="product-item">
+            <div class="product-name">UNI-IRON PHOSPHATE</div>
+            <div class="product-tag">Conversion</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIKCONDITIONER</div>
+            <div class="product-tag">Ti Pre-Dip</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIKTONNER</div>
+            <div class="product-tag">Accelerator</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIKLEAN SP</div>
+            <div class="product-tag">Cleaner</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIPASS-FE</div>
+            <div class="product-tag">Sealer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zinc Phosphating -->
+      <div class="product-card featured">
+        <div class="product-img-ph">
+          <img src="https://raw.githubusercontent.com/kumaraswins/image/main/zn/zn4.jpg" alt="Zinc Phosphating Fasteners">
+        </div>
+        <div class="product-head">
+          <div class="product-head-text">
+            <div class="product-cat">Zinc Phosphating</div>
+            <div class="product-count">4 Products</div>
+          </div>
+          <svg class="product-cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 L20 8 V16 L12 21 L4 16 V8 Z"/>
+            <path d="M12 3 V21" opacity="0.5"/>
+            <path d="M4 8 L20 16" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="product-list">
+          <div class="product-item">
+            <div class="product-name">UNIKOAT LT450 (Hot)</div>
+            <div class="product-tag">High Temp</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIKOAT LT700 / LT450</div>
+            <div class="product-tag">Room Temp</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIKOAT LT2000</div>
+            <div class="product-tag">70°C Heavy</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIKLEAN 3 IN 1</div>
+            <div class="product-tag">Combined</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manganese Phosphating -->
+      <div class="product-card featured">
+        <div class="product-img-ph">
+          <img src="https://raw.githubusercontent.com/kumaraswins/image/main/mp/mp4.png" alt="Manganese Phosphating Gears">
+        </div>
+        <div class="product-head">
+          <div class="product-head-text">
+            <div class="product-cat">Manganese Phosphating</div>
+            <div class="product-count">1 Product</div>
+          </div>
+          <svg class="product-cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="8"/>
+            <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="product-list single">
+          <div class="product-item">
+            <div class="product-name">UNI-MANGANESE PHOS</div>
+            <div class="product-tag">Mn Phosphate</div>
+          </div>
+        </div>
+        <div class="product-note">
+          <strong>HEAVY-LOAD WEAR FINISHING</strong><br/>
+          Coating weights up to 30&nbsp;g/m² for camshafts,
+          gears, pistons, and high-friction wear surfaces.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary row: Supporting chemistries -->
+    <div class="product-row-secondary">
+
+      <!-- Aluminium Treatment (4 products in 2 cols) -->
+      <div class="product-card">
+        <div class="product-img-ph">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2025/4/501482578/LN/CO/ES/14192666/aluminium-chromate-passivation.jpg" alt="Aluminium Treatment">
+        </div>
+        <div class="product-head">
+          <div class="product-head-text">
+            <div class="product-cat">Aluminium Treatment</div>
+            <div class="product-count">4 Products</div>
+          </div>
+          <svg class="product-cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6 H20 V18 H4 Z"/>
+            <path d="M4 10 H20 M4 14 H20" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="product-list two-col">
+          <div class="product-item">
+            <div class="product-name">UNIKLEAN-AL</div>
+            <div class="product-tag">Degreasing</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIPASS-AL CHROME</div>
+            <div class="product-tag">Passivation</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIPASS-AL NON CHROME</div>
+            <div class="product-tag">Eco</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNIPASS-AL</div>
+            <div class="product-tag">Standard</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- De-Rusting Chemicals -->
+      <div class="product-card">
+        <div class="product-img-ph">
+          <img src="https://raw.githubusercontent.com/kumaraswins/image/main/iron/ip.jpeg" alt="De-Rusting Chemicals">
+        </div>
+        <div class="product-head">
+          <div class="product-head-text">
+            <div class="product-cat">De-Rusting Chemicals</div>
+            <div class="product-count">2 Products</div>
+          </div>
+          <svg class="product-cat-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12 Q5 7 10 7 H14 Q19 7 19 12 Q19 17 14 17 H10 Q5 17 5 12 Z"/>
+            <path d="M9 11 L11 13 L15 9" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="product-list two-col">
+          <div class="product-item">
+            <div class="product-name">UNISOLVE H3</div>
+            <div class="product-tag">Industrial De-Rust</div>
+          </div>
+          <div class="product-item">
+            <div class="product-name">UNISOLVE</div>
+            <div class="product-tag">Standard De-Rust</div>
+          </div>
+        </div>
+        <div class="product-note">
+          <strong>INHIBITED ACID CHEMISTRIES</strong><br/>
+          Controlled oxide removal without base-metal
+          attack on critical components.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- PAGE 4 (FINAL) — CLIENTS + WHY CHOOSE + CONTACT -->
+<section class="page">
+  <div class="p-inner" style="padding-bottom:18mm;">
+
+    <!-- Moved Industrial Oils & Process Fluids to start of Page 4 -->
+    <div class="oils-block">
+      <div class="product-img-ph" style="height: 40mm; margin-bottom: 3mm; border: none; border-radius: 1mm;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkWHnI7017-ktq9GpjWflaV_hBlZTN0gIEkA&s" alt="Process Oils & Fluids">
+      </div>
+      <div class="oils-head">
+        <div>
+          <div class="section-eyebrow">EXTENDED PORTFOLIO</div>
+          <h3>Industrial Oils &amp; Process Fluids</h3>
+        </div>
+        <div class="oils-tag">Six categories &middot; Industrial grade</div>
+      </div>
+
+      <div class="oils-grid">
+
+        <div class="oil-cell">
+          <svg class="oil-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 Q6 11 6 15 A6 6 0 0 0 18 15 Q18 11 12 3 Z"/>
+          </svg>
+          <div>
+            <div class="oil-name">Rust Preventive Oils</div>
+            <p class="oil-desc">Temporary corrosion protection for stored and transported components.</p>
+          </div>
+        </div>
+
+        <div class="oil-cell">
+          <svg class="oil-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+            <line x1="12" y1="3" x2="12" y2="6"/>
+            <line x1="12" y1="18" x2="12" y2="21"/>
+            <line x1="3" y1="12" x2="6" y2="12"/>
+            <line x1="18" y1="12" x2="21" y2="12"/>
+          </svg>
+          <div>
+            <div class="oil-name">Industrial Lubricants</div>
+            <p class="oil-desc">High-performance lubrication for bearings, gears, and sliding surfaces.</p>
+          </div>
+        </div>
+
+        <div class="oil-cell">
+          <svg class="oil-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="12" height="16" rx="1"/>
+            <line x1="6" y1="9" x2="18" y2="9"/>
+            <path d="M9 14 H15 M9 17 H13" opacity="0.6"/>
+          </svg>
+          <div>
+            <div class="oil-name">Duncan Oil</div>
+            <p class="oil-desc">Speciality oil for electrical transformer maintenance and insulation protection.</p>
+          </div>
+        </div>
+
+        <div class="oil-cell">
+          <svg class="oil-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 14 Q6 12 9 14 T15 14 T21 14"/>
+            <path d="M3 18 Q6 16 9 18 T15 18 T21 18" opacity="0.6"/>
+            <path d="M12 4 V11" opacity="0.6"/>
+            <circle cx="12" cy="6" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
+          <div>
+            <div class="oil-name">Coolants</div>
+            <p class="oil-desc">Water-based and semi-synthetic coolants for machining and grinding.</p>
+          </div>
+        </div>
+
+        <div class="oil-cell">
+          <svg class="oil-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4 L20 20"/>
+            <path d="M16 4 L20 8 L16 12" opacity="0.7"/>
+            <path d="M8 12 L4 16 L8 20" opacity="0.7"/>
+          </svg>
+          <div>
+            <div class="oil-name">Cutting Oils</div>
+            <p class="oil-desc">Neat and soluble cutting oils for turning, milling, drilling, and tapping.</p>
+          </div>
+        </div>
+
+        <div class="oil-cell">
+          <svg class="oil-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 4 Q4 9 4 13 A4 4 0 0 0 12 13 Q12 9 8 4 Z"/>
+            <path d="M16 18 L20 14 M16 14 L20 18" opacity="0.7"/>
+          </svg>
+          <div>
+            <div class="oil-name">Dewatering Fluids</div>
+            <p class="oil-desc">Displaces moisture from metal surfaces to prevent flash rust post-cleaning.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-eyebrow">TRUSTED BY</div>
+    <h1 class="headline" style="margin-bottom:3mm;">
+      Major Clients &amp; Partners
+    </h1>
+
+    <div class="client-strip">
+      <div class="client-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/83/Indian_Railways.svg" alt="Indian Railways">
+      </div>
+      <div class="client-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/ta/7/79/TVS_Motor_Company_Logo.png" alt="TVS Motor Company">
+      </div>
+      <div class="client-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a1/Larsen%26Toubro_logo.svg" alt="Larsen & Toubro">
+      </div>
+      <div class="client-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Rane_Group_Logo.jpg/500px-Rane_Group_Logo.jpg" alt="Rane Group">
+      </div>
+      <div class="client-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Chemplast_Sanmar.jpg" alt="Chemplast Sanmar">
+      </div>
+      <div class="client-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Tube_Investments_of_India_Limited.svg/500px-Tube_Investments_of_India_Limited.svg.png" alt="Tube Investments of India">
+      </div>
+    </div>
+
+    <div class="divider-rule"></div>
+
+    <div class="section-eyebrow">OUR COMMITMENT</div>
+    <h2 class="subhead" style="margin-bottom:3mm;">Why Choose Macro Coats?</h2>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12 L10 17 L19 7"/>
+          </svg>
+        </div>
+        <div class="why-name">Proven Chemistry</div>
+        <p class="why-desc">
+          Formulations refined over decades of industrial field use across
+          heavy engineering, automotive &amp; infrastructure sectors.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 19 Q5 9 13 5 Q21 4 19 12 Q17 19 9 19 Q7 19 5 19 Z"/>
+            <path d="M5 19 Q11 14 17 8" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="why-name">Eco-Friendly Options</div>
+        <p class="why-desc">
+          Chrome-free passivation and low-temperature, low-sludge
+          phosphating chemistries meeting modern environmental norms.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="1.5"/>
+            <path d="M8 12 L11 15 L16 9"/>
+          </svg>
+        </div>
+        <div class="why-name">Consistent Quality</div>
+        <p class="why-desc">
+          Every batch is tested and verified. Timely delivery with
+          documentation to satisfy your quality management systems.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3"/>
+            <path d="M3 19 Q3 13 9 13 Q15 13 15 19"/>
+            <circle cx="17" cy="9" r="2"/>
+            <path d="M14 19 Q14 15 17 15 Q21 15 21 19"/>
+          </svg>
+        </div>
+        <div class="why-name">Expert Team</div>
+        <p class="why-desc">
+          Chemists and engineers with deep cross-industry knowledge,
+          offering tailored formulation development on request.
+        </p>
+      </div>
+    </div>
+
+    <div class="closing-band">
+      <div class="closing-eyebrow">Let's Talk</div>
+      <p class="closing-line">
+        Engineer chemistry <em>around your process.</em>
+      </p>
+    </div>
+
+    <div class="back-bottom">
+      <div class="contact-col">
+        <h4>Contact</h4>
+        <div class="contact-name">Macro Coats Pvt. Ltd.</div>
+        <div class="contact-role">Formerly Tecco Pvt. Ltd. &middot; Metal Surface Treatment Chemicals</div>
+        <p class="contact-line">
+          Registered HQ — Chennai, Tamil Nadu, India<br/>
+          +91 98840 80377 &nbsp;&middot;&nbsp;
+          <a href="mailto:info@macrocoats.in">info@macrocoats.in</a> &nbsp;&middot;&nbsp;
+          <a href="https://macrocoats.in" target="_blank">macrocoats.in</a>
+        </p>
+      </div>
+
+      <div class="qr-block">
+       
+      </div>
+
+      <div class="back-logo">
+        <div class="logo-mark">
+          <svg class="logo-glyph" aria-hidden="true" viewBox="0 0 30 34" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M11 4 H19" stroke-linecap="round"/>
+            <path d="M12 4 V11 L6 26 Q5 30 9 30 H21 Q25 30 24 26 L18 11 V4" stroke-linejoin="round"/>
+            <path d="M9 22 H21" opacity="0.6"/>
+            <circle cx="13" cy="25" r="0.8" fill="currentColor" stroke="none"/>
+            <circle cx="17" cy="24" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+          <div class="logo-word" style="font-size:13pt;">MACROCOATS</div>
+        </div>
+        <div style="font-size:8pt; font-style:italic; color:var(--graphite); opacity:0.8;">
+          Specialty Industrial Chemistry
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-rule"></div>
+  <div class="copyright">© 2026 Macro Coats Pvt Ltd. All rights reserved.</div>
+</section>
+
+</div>
+</body>
+</html>
